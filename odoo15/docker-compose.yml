@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  odoo:
+    build: .
+    environment:
+      - HOST=postgres13
+      - PASSWORD=**postgres@odoo**
+    volumes:
+      - odoo-data:/mnt/extra-addons
+      - ./config:/etc/odoo
+    networks:
+      - odoo
+      - db
+    ports:
+      - "8069:8069"
+
+volumes:
+  odoo-data:
+
+networks:
+  odoo:
+    external:
+      name: odoo
+  db:
+    external:
+      name: db
+
