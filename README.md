@@ -22,14 +22,16 @@ git clone --branch odoo https://github.com/yassine125/DevopsTools.git
 docker network create odoo 
 ```
 
-- Start container on production env
+- Start container of postgres
 
 ```bash
+$ cd postgres
 $ docker-compose  up -d
 ```
 
-- Start container on dev env
+- Start container of odoo
 
 ```bash
+$ cd odoo15
 $ docker-compose up -d --build
 ```
